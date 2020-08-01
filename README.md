@@ -19,6 +19,7 @@
 ### Association
 
 - has_many :items
+- has_one :transaction
 
 ## items テーブル
 
@@ -37,6 +38,7 @@
 
 - belongs_to :user
 - has_one :shipping
+- has_one :transaction
 
  ## shipping(配送先) テーブル
 
@@ -54,10 +56,14 @@
 
 - belongs_to :item
 
-## purchase(購入) テーブル
+## transaction テーブル
 
 | Column      | Type    | Options     |
 | ----------- | --------| ----------- |
+| user_id     | integer | foreign_key: true |
 | item_id     | integer | foreign_key: true |
-| card_id     | string  | null: false |
-| shipping_id | integer | foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
