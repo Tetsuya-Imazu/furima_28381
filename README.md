@@ -19,7 +19,6 @@
 ### Association
 
 - has_many :items
-- has_one :shipping
 
 ## items テーブル
 
@@ -37,15 +36,7 @@
 ### Association
 
 - belongs_to :user
-
-## card テーブル
-
-| Column        | Type    | Options     |
-| ------------- | --------| ----------- |
-| number        | string  | null: false |
-| exp_month     | string  | null: false |
-| exp_year      | string  | null: false |
-| cvc           | string  | null: false |
+- has_one :shipping
 
  ## shipping(配送先) テーブル
 
@@ -57,7 +48,16 @@
 | address       | string  | null: false |
 | building      | string  |             |
 | phone_number  | string  | null: false |
+| item_id       | integer | foreign_key: true |
 
 ### Association
 
-- belongs_to :user
+- belongs_to :item
+
+## purchase(購入) テーブル
+
+| Column      | Type    | Options     |
+| ----------- | --------| ----------- |
+| item_id     | integer | foreign_key: true |
+| card_id     | string  | null: false |
+| shipping_id | integer | foreign_key: true |
