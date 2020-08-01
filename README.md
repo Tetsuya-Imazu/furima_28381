@@ -32,7 +32,7 @@
 | cost_id       | integer | null: false |
 | prefecture_id | integer | null: false |
 | shipping_id   | integer | null: false |
-| price         | string  | null: false |
+| price         | integer | null: false |
 
 ### Association
 
