@@ -14,14 +14,11 @@
 | first_name            | string | null: false |
 | family_name_kana      | string | null: false |
 | first_name_kana       | string | null: false |
-| birth_year            | string | null: false |
-| birth_month           | string | null: false |
-| birth_day             | string | null: false |
+| birth_day             | date   | null: false |
 
 ### Association
 
 - has_many :items
-- has_one :card
 - has_one :shipping
 
 ## items テーブル
@@ -30,7 +27,7 @@
 | ------------- | --------| ----------- |
 | name          | string  | null: false |
 | description   | text    | null: false |
-| category_id   | string  | null: false |
+| category_id   | integer | null: false |
 | condition_id  | integer | null: false |
 | cost_id       | integer | null: false |
 | prefecture_id | integer | null: false |
@@ -49,10 +46,6 @@
 | exp_month     | string  | null: false |
 | exp_year      | string  | null: false |
 | cvc           | string  | null: false |
-
-### Association
-
-- belongs_to :user
 
  ## shipping(配送先) テーブル
 
