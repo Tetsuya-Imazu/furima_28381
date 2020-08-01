@@ -19,7 +19,7 @@
 ### Association
 
 - has_many :items
-- has_one :item_purchase
+- has_many :item_purchases
 
 ## items テーブル
 
@@ -28,6 +28,10 @@
 | name          | string  | null: false |
 | description   | text    | null: false |
 | category_id   | integer | null: false |
+| condition_id  | integer | null: false |
+| cost_id       | integer | null: false |
+| prefecture_id | integer | null: false |
+| shipping_id   | integer | null: false |
 | price         | string  | null: false |
 
 ### Association
@@ -46,7 +50,7 @@
 | address       | string  | null: false |
 | building      | string  |             |
 | phone_number  | string  | null: false |
-| item_id       | integer | foreign_key: true |
+| item          | references | foreign_key: true |
 
 ### Association
 
@@ -56,8 +60,8 @@
 
 | Column      | Type    | Options     |
 | ----------- | --------| ----------- |
-| user_id     | integer | foreign_key: true |
-| item_id     | integer | foreign_key: true |
+| user        | references | foreign_key: true |
+| item        | references | foreign_key: true |
 
 ### Association
 
