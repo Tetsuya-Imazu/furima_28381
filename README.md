@@ -19,7 +19,7 @@
 ### Association
 
 - has_many :items
-- has_one :transaction
+- has_one :item_purchase
 
 ## items テーブル
 
@@ -28,17 +28,13 @@
 | name          | string  | null: false |
 | description   | text    | null: false |
 | category_id   | integer | null: false |
-| condition_id  | integer | null: false |
-| cost_id       | integer | null: false |
-| prefecture_id | integer | null: false |
-| shipping_id   | integer | null: false |
 | price         | string  | null: false |
 
 ### Association
 
 - belongs_to :user
 - has_one :shipping
-- has_one :transaction
+- has_one :item_purchase
 
  ## shipping(配送先) テーブル
 
@@ -56,7 +52,7 @@
 
 - belongs_to :item
 
-## transaction テーブル
+## item_purchase テーブル
 
 | Column      | Type    | Options     |
 | ----------- | --------| ----------- |
