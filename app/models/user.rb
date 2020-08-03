@@ -6,12 +6,14 @@ class User < ApplicationRecord
          has_many :items
          has_many :item_purchases
 
-         validates :nickname, presence: true
-         validates :password, presence: true
-         validates :confirmation_password, presence: true
-         validates :family_name, presence: true
-         validates :first_name, presence: true
-         validates :family_name_kana, presence: true
-         validates :first_name_kana, presence: true
-         validates :birth_day, presence: true
+  with_options presence: true do
+  validates :nickname, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "全角で入力してください" }
+  validates :password, format: { with: /\A[a-zA-Z0-9]+\z/ , message: "半角英数字で入力してください" }
+  validates :confirmation_password, format: { with: /\A[a-zA-Z0-9]+\z/ , message: "半角英数字で入力してください" }
+  validates :family_name, format: { /\A[ぁ-んァ-ン一-龥]/ , message: "全角で入力してください" }
+  validates :first_name, format: { /\A[ぁ-んァ-ン一-龥]/ , message: "全角で入力してください" }
+  validates :family_name_kana, format: { /\A[ァ-ヶー－]+\z/ , message: "全角カタカナで入力してください" }
+  validates :first_name_kana, format: { /\A[ァ-ヶー－]+\z/ , message: "全角カタカナで入力してください" }
+  validates :birth_day
+  end
 end
