@@ -6,15 +6,9 @@ class User < ApplicationRecord
          has_many :items
          has_many :item_purchases
 
-
          NAME_REGEX = /\A[ぁ-んァ-ン一-龥]/
          PASSWORD_REGEX = /\A[a-zA-Z0-9]+\z/
          NAME_KANA_REGEX = /\A[ァ-ヶー－]+\z/
-        #  CONFIRMATION_PASSWORD_REGEX = /\A[a-zA-Z0-9]+\z/
-        #  FAMILY_NAME_REGEX = /\A[ぁ-んァ-ン一-龥]/
-        #  FIRST_NAME_REGEX = /\A[ぁ-んァ-ン一-龥]/
-        #  FAMILY_NAME_KANA_REGEX = /\A[ァ-ヶー－]+\z/
-        #  FIRST_NAME_KANA_REGEX = /\A[ァ-ヶー－]+\z/
 
   with_options presence: true do
     validates :nickname, format: { with: NAME_REGEX, message: "全角で入力してください" }
