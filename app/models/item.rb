@@ -5,6 +5,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :cost
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :shipping
+  
+  has_one_attached :image
 
   # belongs_to :user
   # has_one :shipping
