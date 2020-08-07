@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   
   has_one_attached :image
 
-  belongs_to :user
+  belongs_to :user, optional: true
   has_one :shipping
   has_one :item_purchase
 
