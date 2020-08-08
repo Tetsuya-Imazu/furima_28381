@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    
   end
 
   def create
@@ -21,9 +20,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def destroy
     if @item.destroy
       redirect_to root_path
@@ -32,8 +28,20 @@ class ItemsController < ApplicationController
     end
   end
 
+  def update
+    item = Item.find(params[:id])
+    if item.update(item_params)
+      redirect_to item_path
+    else
+      render :show
+    end
+  end
+
   def edit
     @item = Item.find(params[:id])
+  end
+
+  def show
   end
 
   private
