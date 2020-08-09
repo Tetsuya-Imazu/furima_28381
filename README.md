@@ -57,7 +57,7 @@
 
 - belongs_to :item
 
-## item_purchase テーブル
+## itempurchase テーブル
 
 | Column      | Type    | Options     |
 | ----------- | --------| ----------- |

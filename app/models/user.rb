@@ -2,7 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          has_many :items
-         has_many :item_purchases
+         has_many :itempurchases
          NAME_REGEX = /\A[ぁ-んァ-ン一-龥]/
          PASSWORD_REGEX = /\A[a-zA-Z0-9]+\z/
          NAME_KANA_REGEX = /\A[ァ-ヶー－]+\z/
