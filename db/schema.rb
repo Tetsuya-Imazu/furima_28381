@@ -63,17 +63,18 @@ ActiveRecord::Schema.define(version: 2020_08_08_123749) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.integer "category_id"
-    t.integer "condition_id"
-    t.integer "cost_id"
-    t.integer "prefecture_id"
-    t.integer "shipping_id"
-    t.integer "price"
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "category_id", null: false
+    t.integer "condition_id", null: false
+    t.integer "cost_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "shipping_id", null: false
+    t.integer "price", null: false
+    t.boolean "sold_out", default: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -101,4 +102,5 @@ ActiveRecord::Schema.define(version: 2020_08_08_123749) do
   add_foreign_key "destinations", "items"
   add_foreign_key "itempurchases", "items"
   add_foreign_key "itempurchases", "users"
+  add_foreign_key "items", "users"
 end
