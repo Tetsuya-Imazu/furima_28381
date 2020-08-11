@@ -41,7 +41,7 @@
 - has_one :shipping
 - has_one :item_purchase
 
- ## shipping(配送先) テーブル
+ ## destinations(配送先) テーブル
 
 | Column        | Type    | Options     |
 | ------------- | --------| ----------- |
@@ -57,7 +57,7 @@
 
 - belongs_to :item
 
-## item_purchase テーブル
+## itempurchase テーブル
 
 | Column      | Type    | Options     |
 | ----------- | --------| ----------- |

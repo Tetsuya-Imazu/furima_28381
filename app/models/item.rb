@@ -9,8 +9,8 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   belongs_to :user, optional: true
-  has_one :shipping
-  has_one :item_purchase
+  has_one :destination
+  has_one :itempurchase
 
   with_options presence: true do
     validates :name
