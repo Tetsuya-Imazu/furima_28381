@@ -19,6 +19,12 @@ class ItempurchasesController < ApplicationController
   end
 
   private
+  
+  def itempurchase_params
+    params.permit(
+      :post_code, :prefecture_id, :city, :address, :building, :phone_number, :item_id, :token
+    ).merge(user_id: current_user.id)
+  end
 
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
@@ -28,16 +34,9 @@ class ItempurchasesController < ApplicationController
       currency:'jpy'
     )
   end
-  
-  def itempurchase_params
-    params.permit(
-      :post_code, :prefecture_id, :city, :address, :building, :phone_number, :item_id, :token
-    ).merge(user_id: current_user.id)
-  end
 
   def set_item
     @item = Item.find(params[:item_id])
   end
   
 end
-
